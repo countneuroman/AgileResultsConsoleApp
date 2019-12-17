@@ -4,7 +4,7 @@ namespace YoursAgileResults
 {
     public static class MainMenu
     {
-        public static void mainMenu()
+        public static void Menu()
         {
             int input;
             Console.Clear();

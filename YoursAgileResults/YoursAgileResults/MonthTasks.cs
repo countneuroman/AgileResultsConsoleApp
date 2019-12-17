@@ -5,7 +5,7 @@ namespace YoursAgileResults
 {
     public  class MonthTasks  //задачи на месяц
     {
-        private  List<string> monthTasks = new List<string>();
+        private readonly List<string> monthTasks = new List<string>();
         public  void AddTasks()    //добавление задач в лист
         {
             var done = 0;

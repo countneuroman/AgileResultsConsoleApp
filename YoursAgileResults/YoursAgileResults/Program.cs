@@ -16,14 +16,13 @@ namespace YoursAgileResults
             weektasks.AddTasks();
             daytasks.AddTasks();
 
-            MainMenu.mainMenu();    //выходим в главное меню
+            MainMenu.Menu();    //выходим в главное меню
         }
         static public void Tasks()  //меню работы с задачами
         {
             int input;
             Console.Clear();
-
-            ViewTasks.viewTasks();
+            ViewTasks();
 
             while (true)
             {
@@ -31,17 +30,17 @@ namespace YoursAgileResults
                 input = Convert.ToInt32(Console.ReadLine());
                 if (input == 1)
                 {
-                    editTasks();
+                    EditTasks();
                     break;
                 }
                 else if (input == 2)
                 {
-                    deleteTasks();//удаление задач еще не реализовано
+                    DeleteTasks();//удаление задач еще не реализовано
                     break;
                 }
                 else if (input == 3)
                 {
-                    MainMenu.mainMenu();
+                    MainMenu.Menu();
                     break;
                 }
                 else
@@ -50,9 +49,9 @@ namespace YoursAgileResults
                 }
             }
         }
-        public static void editTasks()
+        public static void EditTasks()
         {
-            ViewTasks.viewTasks();
+            ViewTasks();
             int input;
             while (true)
             {
@@ -75,7 +74,7 @@ namespace YoursAgileResults
                 }
                 else if (input == 4)
                 {
-                    MainMenu.mainMenu();
+                    MainMenu.Menu();
                     break;
                 }
                 else
@@ -85,17 +84,15 @@ namespace YoursAgileResults
             }
         }
 
-        public static class ViewTasks   //класс для просмотра задач
+
+        public static void ViewTasks()
         {
-            public static void viewTasks()
-            {
-                monthtasks.GetTasks();
-                weektasks.GetTasks();
-                daytasks.GetTasks();
-            }
+            monthtasks.GetTasks();
+            weektasks.GetTasks();
+            daytasks.GetTasks();
         }
 
-        public static void deleteTasks()
+        public static void DeleteTasks()
         {
                 //нужо реализовать удаление задач
         }
