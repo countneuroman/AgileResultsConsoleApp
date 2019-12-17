@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace YoursAgileResults
 {
-    public static class MonthTasks  //задачи на месяц
+    public  class MonthTasks  //задачи на месяц
     {
-        private static List<string> monthTasks = new List<string>();
-        public static void AddTasks()    //добавление задач в лист
+        private  List<string> monthTasks = new List<string>();
+        public  void AddTasks()    //добавление задач в лист
         {
             var done = 0;
-            Console.WriteLine("Введите ваши задачи на месяц.");
+            Console.WriteLine("Введите ваши задачи/");
             while (done < 3)    //цикл проверки ввода не более 3 задач
             {
                 Console.WriteLine("Введите вашу задачу:");
@@ -19,7 +19,7 @@ namespace YoursAgileResults
             }
         }
 
-        public static void EditTasks() //изменение задач
+        public  void EditTasks() //изменение задач
         {
             int index;
             while (true)
@@ -42,16 +42,16 @@ namespace YoursAgileResults
             Program.Tasks();
         }
 
-        public static void GetTasks()  //получение всех задач из листа, и вывод на экран
+        public  void GetTasks()  //получение всех задач из листа, и вывод на экран
         {
             if (monthTasks.Count == 0)
             {
-                Console.WriteLine("У вас нет задач на месяц!");
+                Console.WriteLine("У вас нет задач!");
             }
             else
 
             {
-                Console.WriteLine("Ваши задачи на месяц:");
+                Console.WriteLine("Ваши задачи на:");
                 foreach (string task in monthTasks)
                 {
                     Console.WriteLine(task);
