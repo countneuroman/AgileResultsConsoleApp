@@ -3,23 +3,22 @@ using System.Collections.Generic;
 
 namespace YoursAgileResults
 {
-    public  class MonthTasks  //задачи на месяц
+    public class MonthTasks : Tasks //задачи на месяц
     {
-        private readonly List<string> monthTasks = new List<string>();
-        public  void AddTasks()    //добавление задач в лист
+        public override void AddTasks()    //добавление задач в лист
         {
-            var done = 0;
-            Console.WriteLine("Введите ваши задачи/");
-            while (done < 3)    //цикл проверки ввода не более 3 задач
+            var done = 1;
+            Console.WriteLine("Введите ваши задачи на месяц:");
+            while (done < 4)    //цикл проверки ввода не более 3 задач
             {
-                Console.WriteLine("Введите вашу задачу:");
+                Console.WriteLine($"Введите вашу {done} задачу:");
                 string input = Console.ReadLine();
                 monthTasks.Add(input);
                 done += 1;
             }
         }
 
-        public  void EditTasks() //изменение задач
+        public override void EditTasks() //изменение задач
         {
             int index;
             while (true)
@@ -35,23 +34,23 @@ namespace YoursAgileResults
                     Console.WriteLine("Вы ввели неправильный номер задачи!");
                 }
             }
-            Console.WriteLine("Введите новую задачу");
+            Console.WriteLine("Введите новую задачу на месяц");
             string task = Console.ReadLine();
             monthTasks.RemoveAt(index); //удаляем старое значение 
             monthTasks.Insert(index, task); //добавляем новое значение на место старого
             Program.Tasks();
         }
 
-        public  void GetTasks()  //получение всех задач из листа, и вывод на экран
+        public override void GetTasks()  //получение всех задач из листа, и вывод на экран
         {
             if (monthTasks.Count == 0)
             {
-                Console.WriteLine("У вас нет задач!");
+                Console.WriteLine("У вас нет задач на месяц!");
             }
             else
 
             {
-                Console.WriteLine("Ваши задачи на:");
+                Console.WriteLine("Ваши задачи на месяц:");
                 foreach (string task in monthTasks)
                 {
                     Console.WriteLine(task);
