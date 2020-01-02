@@ -3,7 +3,7 @@ Implementation of the  approach Agile Results as C# console program.
 
 ###  TO DO:
 * Описание Agile results
-* Удаление задач
+* ~~Удаление задач~~ **DONE**
 * Проверка на первый вход в программу
 * Отдельное меню для вошедших первый раз
 * Хранение задач в файле
