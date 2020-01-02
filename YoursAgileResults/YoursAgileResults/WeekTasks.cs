@@ -13,7 +13,7 @@ namespace YoursAgileResults
             {
                 Console.WriteLine($"Введите вашу {done} задачу:");
                 string input = Console.ReadLine();
-                monthTasks.Add(input);
+                allTasks.Add(input);
                 done += 1;
             }
         }
@@ -36,14 +36,14 @@ namespace YoursAgileResults
             }
             Console.WriteLine("Введите новую задачу на неделю");
             string task = Console.ReadLine();
-            monthTasks.RemoveAt(index); //удаляем старое значение 
-            monthTasks.Insert(index, task); //добавляем новое значение на место старого
+            allTasks.RemoveAt(index); //удаляем старое значение 
+            allTasks.Insert(index, task); //добавляем новое значение на место старого
             Program.Tasks();
         }
 
         public override void GetTasks()  //получение всех задач из листа, и вывод на экран
         {
-            if (monthTasks.Count == 0)
+            if (allTasks.Count == 0)
             {
                 Console.WriteLine("У вас нет задач на неделю!");
             }
@@ -51,11 +51,16 @@ namespace YoursAgileResults
 
             {
                 Console.WriteLine("Ваши задачи на неделю:");
-                foreach (string task in monthTasks)
+                foreach (string task in allTasks)
                 {
                     Console.WriteLine(task);
                 }
             }
+        }
+
+        public override void DeleteTasks()
+        {
+            base.DeleteTasks();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace YoursAgileResults
                 }
                 else if (input == 2)
                 {
-                    DeleteTasks();//удаление задач еще не реализовано
+                    DeleteTasks();
                     break;
                 }
                 else if (input == 3)
@@ -94,7 +94,37 @@ namespace YoursAgileResults
 
         public static void DeleteTasks()
         {
-                //нужо реализовать удаление задач
+            ViewTasks();
+            int input;
+            while (true)
+            {
+                Console.WriteLine("Введите 1 что бы удалить задачи на месяц, введите 2 что удалить задачи на неделю введите 3 что бы удалить задачи на день. Введите 4 что бы выйти в главное меню");
+                input = Convert.ToInt32(Console.ReadLine());
+                if (input == 1)
+                {
+                    monthtasks.DeleteTasks();
+                    break;
+                }
+                else if (input == 2)
+                {
+                    weektasks.DeleteTasks();
+                    break;
+                }
+                else if (input == 3)
+                {
+                    daytasks.DeleteTasks();
+                    break;
+                }
+                else if (input == 4)
+                {
+                    MainMenu.Menu();
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Вы ввели неправильные данные!");
+                }
+            }
         }
 
     }
