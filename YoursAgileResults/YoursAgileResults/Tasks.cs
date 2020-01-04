@@ -26,7 +26,8 @@ namespace YoursAgileResults
                     Console.WriteLine("Вы ввели неправильный номер задачи!");
                 }
             }
-            allTasks.RemoveAt(index); //удаляем значение 
+            allTasks.RemoveAt(index); //удаляем значение
+            allTasks.Insert(index, "Задача отсутствует!");
             Program.Tasks();
         }
 

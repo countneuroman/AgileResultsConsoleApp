@@ -14,24 +14,34 @@ namespace YoursAgileResults
             Console.WriteLine("3)Выход из программы");
             while (true)
             {
-                input = Convert.ToInt32(Console.ReadLine());
-                if (input == 1)
+                try
                 {
-                    Program.Tasks();
-                    break;
+                    input = Convert.ToInt32(Console.ReadLine());
+                    if (input == 1)
+                    {
+                        Program.Tasks();
+                        break;
+                    }
+                    else if (input == 2)
+                    {
+                        //нужно добавить описание Agile results в отдельном классе 
+                        break;
+                    }
+                    else if (input == 3)
+                    {
+                        System.Environment.Exit(0); //закрытие программы
+                    }
+                    else
+                    {
+                        Console.WriteLine("Вы ввели неправильный номер меню!");
+                    }
                 }
-                else if (input == 2)
+                catch(Exception ex)
                 {
-                    //нужно добавить описание Agile results в отдельном классе 
-                    break;
-                }
-                else if (input == 3)
-                {
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Вы ввели неправильный номер меню!");
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("Нажмите любую клавишу для возврата в главное меню...");
+                    Console.ReadKey();
+                    MainMenu.Menu();
                 }
             }
         }

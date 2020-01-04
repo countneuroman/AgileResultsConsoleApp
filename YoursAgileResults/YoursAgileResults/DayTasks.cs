@@ -13,8 +13,16 @@ namespace YoursAgileResults
             {
                 Console.WriteLine($"Введите вашу {done} задачу:");
                 string input = Console.ReadLine();
-                allTasks.Add(input);
-                done += 1;
+                input = input.Trim();   //удаляем начальные и конечные пробелы для проверки на ввод пустой строки
+                if (input == string.Empty)  //проверка на ввод пустой строки
+                {
+                    Console.WriteLine("Вы не ввели задачу!");
+                }
+                else
+                {
+                    allTasks.Add(input);
+                    done += 1;
+                }
             }
         }
 
@@ -34,10 +42,22 @@ namespace YoursAgileResults
                     Console.WriteLine("Вы ввели неправильный номер задачи!");
                 }
             }
-            Console.WriteLine("Введите новую задачу на день");
-            string task = Console.ReadLine();
-            allTasks.RemoveAt(index); //удаляем старое значение 
-            allTasks.Insert(index, task); //добавляем новое значение на место старого
+            while (true)
+            {
+                Console.WriteLine("Введите новую задачу на день");
+                string task = Console.ReadLine();
+                task = task.Trim();
+                if (task == string.Empty)
+                {
+                    Console.WriteLine("Вы не ввели задачу!");
+                }
+                else
+                {
+                    allTasks.RemoveAt(index); //удаляем старое значение 
+                    allTasks.Insert(index, task); //добавляем новое значение на место старого
+                    break;
+                }
+            }
             Program.Tasks();
         }
 
