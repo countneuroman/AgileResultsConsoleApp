@@ -45,11 +45,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DayTasks.cs" />
+    <Compile Include="ITask.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="MonthTasks.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tasks.cs" />
+    <Compile Include="TaskAdder.cs" />
+    <Compile Include="TaskEditor.cs" />
+    <Compile Include="TaskGetter.cs" />
+    <Compile Include="TaskRemover.cs" />
     <Compile Include="WeekTasks.cs" />
   </ItemGroup>
   <ItemGroup>

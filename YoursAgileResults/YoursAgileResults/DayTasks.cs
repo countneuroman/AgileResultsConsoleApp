@@ -3,84 +3,32 @@ using System.Collections.Generic;
 
 namespace YoursAgileResults
 {
-    public  class DayTasks:Tasks    //задачи на день
+    public  class DayTasks:ITask    //задачи на день
     {
-        public override void AddTasks()    //добавление задач в лист
+        List<string> Tasks = new List<string>();
+        TaskAdder adder = new TaskAdder();
+        TaskEditor editor = new TaskEditor();
+        TaskGetter getter = new TaskGetter();
+        TaskRemover remover = new TaskRemover();
+
+        public void AddTasks()
         {
-            var done = 1;
-            Console.WriteLine("Введите ваши задачи на день:");
-            while (done < 4)    //цикл проверки ввода не более 3 задач
-            {
-                Console.WriteLine($"Введите вашу {done} задачу:");
-                string input = Console.ReadLine();
-                input = input.Trim();   //удаляем начальные и конечные пробелы для проверки на ввод пустой строки
-                if (input == string.Empty)  //проверка на ввод пустой строки
-                {
-                    Console.WriteLine("Вы не ввели задачу!");
-                }
-                else
-                {
-                    allTasks.Add(input);
-                    done += 1;
-                }
-            }
+            adder.AddTasks("Введите ваши задачи на день:", Tasks);
         }
 
-        public override void EditTasks() //изменение задач
+        public void GetTasks()
         {
-            int index;
-            while (true)
-            {
-                Console.WriteLine("Какую задачу вы хотите изменить (введите номер задачи):");
-                index = Convert.ToInt32(Console.ReadLine()) - 1; //уменьшаем значение на единицу, т.к. перечисление элементов начинается с 0 
-                if (index == 0 | index == 1 | index == 2)    //проверка соответствия номеру задачи
-                {
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Вы ввели неправильный номер задачи!");
-                }
-            }
-            while (true)
-            {
-                Console.WriteLine("Введите новую задачу на день");
-                string task = Console.ReadLine();
-                task = task.Trim();
-                if (task == string.Empty)
-                {
-                    Console.WriteLine("Вы не ввели задачу!");
-                }
-                else
-                {
-                    allTasks.RemoveAt(index); //удаляем старое значение 
-                    allTasks.Insert(index, task); //добавляем новое значение на место старого
-                    break;
-                }
-            }
-            Program.Tasks();
+            getter.GetTasks("день", Tasks);
         }
 
-        public override void GetTasks()  //получение всех задач из листа, и вывод на экран
+        public void EditTasks()
         {
-            if (allTasks.Count == 0)
-            {
-                Console.WriteLine("У вас нет задач на день!");
-            }
-            else
-
-            {
-                Console.WriteLine("Ваши задачи на день:");
-                foreach (string task in allTasks)
-                {
-                    Console.WriteLine(task);
-                }
-            }
+            editor.EditTasks("Введите ваши задачи на день:", Tasks);
         }
 
-        public override void DeleteTasks()
+        public void DeleteTasks()
         {
-            base.DeleteTasks();
+            remover.DeleteTasks(Tasks);
         }
     }
 }

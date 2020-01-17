@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace YoursAgileResults
 {
-    public abstract class Tasks
+    class TaskRemover
     {
-        public readonly List<string> allTasks = new List<string>();
-        public abstract void AddTasks();   //добавление задач в лист
-        public abstract void EditTasks(); //изменение задач
-        public abstract void GetTasks();  //получение всех задач из листа, и вывод на экран
-
-        public virtual void DeleteTasks()   //удаление задач
+        public void DeleteTasks(List<string> tasks)
         {
             int index;
             while (true)
@@ -26,10 +24,9 @@ namespace YoursAgileResults
                     Console.WriteLine("Вы ввели неправильный номер задачи!");
                 }
             }
-            allTasks.RemoveAt(index); //удаляем значение
-            allTasks.Insert(index, "Задача отсутствует!");
+            tasks.RemoveAt(index); //удаляем значение
+            tasks.Insert(index, "Задача отсутствует!");
             Program.Tasks();
         }
-
     }
 }
